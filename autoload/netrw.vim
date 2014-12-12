@@ -7363,8 +7363,8 @@ fun! s:LocalListing()
 
   while filelist != ""
    if filelist =~ '\n'
-    let filename = substitute(filelist,'\n.*$','','e')
-    let filelist = substitute(filelist,'^.\{-}\n\(.*\)$','\1','e')
+    let filename = substitute(matchstr(filelist,'^.\{-}\n'),'\n', '', 'e')
+    let filelist = substitute(filelist,'^.\{-}\n','','e')
    else
     let filename = filelist
     let filelist = ""
